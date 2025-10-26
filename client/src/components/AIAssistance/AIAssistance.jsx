@@ -11,14 +11,17 @@ function AIAssistant() {
   const getAIResponse = async (userQuestion) => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:5500/api/chat", {
-        // 👈 your backend URL (change if deployed)
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message: userQuestion }),
-      });
+      const response = await fetch(
+        "https://evangadiform-backend-deploy.onrender.com/api/chat",
+        {
+          // 👈 your backend URL (change if deployed)
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: userQuestion }),
+        }
+      );
 
       if (!response.ok) throw new Error("Failed to get AI response");
 
