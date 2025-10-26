@@ -1,0 +1,251 @@
+/* Reset & basic box-sizing */
+.wrapperContainer * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== Wrapper Container ===== */
+.wrapperContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 20px;
+}
+
+/* ===== Register Page ===== */
+.registerPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registerBox {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.15), -5px 0 25px rgba(0, 0, 0, 0.15);
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.registerBox h2 {
+  font-size: 26px;
+  color: rgb(45, 56, 94);
+  margin-bottom: 20px;
+}
+
+.nameFields {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ===== Input Fields ===== */
+.inputField {
+  width: 100%;
+  padding: 12px 40px 12px 12px; /* space for eye icon */
+  margin: 10px 0 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.inputField:focus {
+  border-color: #ff8500;
+  box-shadow: 0 0 0 2px rgba(255, 133, 0, 0.2);
+}
+
+/* ===== Password Wrapper & Eye Toggle ===== */
+.passwordWrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.passwordToggle {
+  position: absolute;
+  top: 50%;
+  right: 0; /* flush to right-most border */
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #777;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  box-shadow: none;
+}
+
+.passwordToggle:hover,
+.passwordToggle:focus,
+.passwordToggle:active {
+  color: #777; /* no color change on hover/focus */
+  outline: none;
+  box-shadow: none;
+}
+
+/* Adjust input padding to prevent text overlapping the eye */
+.inputField {
+  padding-right: 40px;
+}
+
+/* ===== Submit Button ===== */
+.submitButton {
+  width: 100%;
+  padding: 14px;
+  background: #ff8500;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+}
+
+.submitButton:hover {
+  background-color: #e55a00;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Switch Text */
+.switchText {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.switchText a {
+  color: #ff8500;
+  text-decoration: none;
+}
+
+.switchText a:hover {
+  text-decoration: underline;
+}
+
+/* ===== About Section ===== */
+.container {
+  text-align: center;
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  width: 100%;
+}
+
+.container h1 {
+  font-size: 38px;
+  color: rgb(75, 69, 111);
+  font-weight: 500;
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+
+.container h3 {
+  color: #ff8500;
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.container p {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(75, 69, 111);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.container a {
+  color: #ff8500;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.container a:hover {
+  text-decoration: underline;
+}
+
+.container .button {
+  margin-top: 30px;
+  background-color: #ff8500;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.container .button:hover {
+  background-color: #e55a00;
+}
+
+/* ===== Media Queries ===== */
+@media (min-width: 768px) {
+  .wrapperContainer {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3rem;
+    padding: 40px;
+  }
+
+  .registerBox {
+    max-width: 530px;
+    padding: 70px;
+  }
+
+  .container {
+    max-width: 600px;
+    padding: 40px;
+    text-align: left;
+  }
+
+  .inputField {
+    padding: 14px 50px 14px 14px; /* space for eye icon on desktop */
+  }
+
+  .passwordToggle {
+    right: 0;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  .nameFields {
+    flex-direction: column;
+  }
+
+  .wrapperContainer {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .container h1,
+  .container p {
+    text-align: center;
+  }
+
+  .inputField {
+    padding: 10px 40px 10px 10px;
+  }
+
+  .passwordToggle {
+    right: 0;
+    padding: 4px;
+  }
+}

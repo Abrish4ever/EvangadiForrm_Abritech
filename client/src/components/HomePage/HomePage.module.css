@@ -1,0 +1,418 @@
+/* Overall page container */
+.homeContainer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  font-family: "Arial", sans-serif;
+}
+
+/* Header section */
+.homeHeader {
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcomeUser h1 {
+  font-size: 24px;
+  color: #f48024;
+  margin-bottom: 5px;
+}
+
+.welcomeUser p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Ask a question button */
+.askQuestionBtn {
+  padding: 12px 20px;
+  background-color: #f48024;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.askQuestionBtn:hover {
+  background-color: #eb700c;
+}
+
+/* Search bar */
+.searchContainer {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.searchInput {
+  padding: 12px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.searchInput:focus {
+  border-color: #f48024;
+}
+
+/* Loading & error messages */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  gap: 15px;
+}
+
+.errorMessage {
+  text-align: center;
+  color: #d9534f;
+  font-size: 16px;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #f8d7da;
+  border-radius: 5px;
+}
+
+/* Empty state */
+.emptyState {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.emptyState h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Questions list */
+.questionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Question card */
+.cardWrapper {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, border-color 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.cardWrapper:hover {
+  transform: translateY(-2px);
+  border-color: #f48024;
+}
+
+/* Profile section */
+.profileSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.profileIcon {
+  font-size: 24px;
+  color: #6a737c;
+}
+
+.username {
+  font-size: 14px;
+  font-weight: bold;
+  color: #0074cc;
+}
+
+/* Question content */
+.content {
+  flex: 1;
+}
+
+.contentTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2d2d2d;
+  margin-bottom: 10px;
+}
+
+.contentTitle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contentTitle a:hover {
+  color: #f48024;
+}
+
+.description {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+/* Meta information - FIXED */
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-height: 30px; /* ✅ Ensure space for buttons */
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tag {
+  padding: 4px 8px;
+  background: #e1ecf4;
+  color: #0074cc;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.date {
+  font-size: 12px;
+  color: #707070;
+}
+
+/* ✅ FIXED: Action buttons - Improved positioning */
+.actionButtons {
+  display: flex;
+  gap: 10px;
+  margin-left: auto; /* ✅ Push to the right */
+  flex-shrink: 0; /* ✅ Prevent shrinking */
+}
+
+.deleteBtn {
+  padding: 6px 12px;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s;
+  white-space: nowrap; /* ✅ Prevent text wrapping */
+  z-index: 10; /* ✅ Ensure visibility */
+  position: relative; /* ✅ Ensure proper stacking */
+}
+
+.deleteBtn:hover {
+  background-color: #c9302c;
+}
+
+/* Arrow navigation */
+.arrow {
+  margin-left: 15px;
+}
+
+.arrowIcon {
+  font-size: 24px;
+  color: #f48024;
+  transition: color 0.3s;
+}
+
+.arrow:hover .arrowIcon {
+  color: #eb700c;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #36d7b7;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #2ab79c;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .homeHeader {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .cardWrapper {
+    padding: 15px;
+  }
+
+  .meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* ✅ FIXED: Mobile action buttons */
+  .actionButtons {
+    margin-left: 0; /* ✅ Reset margin on mobile */
+    width: 100%; /* ✅ Full width on mobile */
+    justify-content: flex-end; /* ✅ Align to right */
+  }
+
+  .arrow {
+    margin-left: 10px;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pagination button {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .homeContainer {
+    padding: 15px;
+  }
+
+  .contentTitle {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+
+  .askQuestionBtn {
+    width: 100%;
+    max-width: none;
+  }
+
+
+  .actionButtons {
+    justify-content: flex-start; 
+  }
+}
+
+
+
+/* Meta information */
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px; /* ✅ Add space for action buttons */
+}
+
+
+.actionButtons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end; /* ✅ Align to right */
+  margin-top: 10px; /* ✅ Space from meta section */
+  padding-top: 10px; /* ✅ Visual separation */
+  border-top: 1px solid #f0f0f0; /* ✅ Visual separator */
+}
+
+.deleteBtn {
+  padding: 8px 16px;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+.deleteBtn:hover {
+  background-color: #c9302c;
+}
+
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .homeHeader {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .cardWrapper {
+    padding: 15px;
+  }
+
+  .meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+
+  .actionButtons {
+    justify-content: flex-start; 
+    width: 100%;
+  }
+
+  .arrow {
+    margin-left: 10px;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pagination button {
+    width: 150px;
+  }
+}

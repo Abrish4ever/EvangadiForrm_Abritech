@@ -1,0 +1,205 @@
+/* EditQuestion.module.css */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h2 {
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.header p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.errorMessage {
+  background: #fed7d7;
+  color: #c53030;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #feb2b2;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+.input {
+  padding: 12px 15px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #FF8500;
+  box-shadow: 0 0 0 3px rgba(255, 133, 0, 0.1);
+}
+
+.previewBox {
+  padding: 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8f9fa;
+  min-height: 60px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.quillEditor {
+  min-height: 200px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.helpText {
+  color: #718096;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.errorText {
+  color: #e53e3e;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.submitButton,
+.discardButton {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+
+.submitButton {
+  background: #FF8500;
+  color: white;
+}
+
+.submitButton:hover {
+  background: #e55a00;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 133, 0, 0.3);
+}
+
+.discardButton {
+  background: #718096;
+  color: white;
+}
+
+.discardButton:hover {
+  background: #4a5568;
+  transform: translateY(-2px);
+}
+
+.loadingContainer {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* Quill Editor Customization */
+.ql-toolbar {
+  border-top: 1px solid #e2e8f0 !important;
+  border-left: 1px solid #e2e8f0 !important;
+  border-right: 1px solid #e2e8f0 !important;
+  border-bottom: none !important;
+  border-radius: 8px 8px 0 0;
+}
+
+.ql-container {
+  border-bottom: 1px solid #e2e8f0 !important;
+  border-left: 1px solid #e2e8f0 !important;
+  border-right: 1px solid #e2e8f0 !important;
+  border-top: none !important;
+  border-radius: 0 0 8px 8px;
+  font-size: 1rem;
+}
+
+.ql-editor {
+  min-height: 150px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .buttonGroup {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .submitButton,
+  .discardButton {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .header h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .input {
+    padding: 10px 12px;
+  }
+}

@@ -1,0 +1,123 @@
+.container {
+  max-width: 800px;
+  width: 95%;
+  margin: 40px auto;
+  padding: 20px 30px;
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+}
+
+.intro {
+  margin-bottom: 25px;
+}
+
+.intro h1 {
+  color: rgb(245, 118, 14);
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.intro p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.partition {
+  margin-top: 25px;
+}
+
+.partition h2 {
+  color: rgb(245, 118, 14);;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.partition p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.partition ol {
+  margin-top: 8px;
+  margin-left: 25px;
+  color: #222;
+  line-height: 1.7;
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.partition li {
+  margin-bottom: 6px;
+}
+
+.tip {
+  font-size: 16px;
+  margin-top: 25px;
+  background: #f1dbbd;
+  padding: 15px;
+  border-left: 4px solid rgb(245, 118, 14);;
+  border-radius: 5px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 20px;
+  }
+
+  .intro h1 {
+    font-size: 24px;
+  }
+
+  .partition h2 {
+    font-size: 18px;
+  }
+
+  .partition p,
+  .partition li {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .partition ol {
+    margin-left: 20px;
+  }
+
+  .tip {
+    font-size: 14px;
+    padding: 12px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px 15px;
+  }
+
+  .intro h1 {
+    font-size: 20px;
+  }
+
+  .partition h2 {
+    font-size: 16px;
+  }
+
+  .partition p,
+  .partition li {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .partition ol {
+    margin-left: 15px;
+  }
+
+  .tip {
+    font-size: 13px;
+    padding: 10px 10px;
+  }
+}
