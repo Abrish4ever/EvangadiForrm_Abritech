@@ -8,6 +8,9 @@ const dbConnection = mysql2.createPool({
   password: process.env.DB_PASSWORD,
   connectionLimit: 10,
   port: process.env.DB_PORT,
+  ssl: {
+    ca: process.env.MYSQL_CA_CERT,
+  },
 });
 
 dbConnection.execute("SELECT 'test'", (err, result) => {

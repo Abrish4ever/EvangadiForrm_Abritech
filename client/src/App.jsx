@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect, useCallback } from "react";
+import { useContext, useState, useEffect } from "react";
 import { UserContext } from "./context/UserProvider";
 import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import axiosInstance from "./API/axios";
@@ -25,20 +25,17 @@ function App() {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
-  function isValidToken(token) {
-    if (!token) return false;
-
+  function isTokenExpired(token) {
     try {
       const decoded = jwtDecode(token);
-      const isExpired = decoded.exp * 1000 < Date.now();
-      return !isExpired && decoded.userid && decoded.username;
+      return decoded.exp * 1000 < Date.now();
     } catch (e) {
-      return false;
+      return true;
     }
   }
 
-  const checkUser = useCallback(async () => {
-    if (!token || !isValidToken(token)) {
+  async function checkUser() {
+    if (!token || isTokenExpired(token)) {
       localStorage.removeItem("token");
       setUser(null);
       setLoading(false);
@@ -46,44 +43,39 @@ function App() {
     }
 
     try {
-      const response = await axiosInstance.get("/users/check", {
+      const { data } = await axiosInstance.get("/users/check", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
 
-      if (response.status === 200) {
-        const decoded = jwtDecode(token);
-        setUser({
-          user_id: decoded.userid,
-          user_name: decoded.username,
-          token: token,
-        });
-      }
+      // ✅ FIX: Ensure user data is properly set with correct property names
+      const decoded = jwtDecode(token);
+      setUser({
+        user_id: decoded.userid, // Map to user_id
+        user_name: decoded.username, // Map to user_name
+        token: token,
+      });
     } catch (error) {
-      console.error("Authentication error:", error);
-
-      if (error.response?.status === 401 || error.response?.status === 500) {
-        localStorage.removeItem("token");
-        setUser(null);
-        setError("Session expired. Please log in again.");
-      } else {
-        setError("Network error. Please check your connection.");
-      }
+      console.error("Authentication error:", error.message);
+      localStorage.removeItem("token");
+      setUser(null);
+      setError("Failed to authenticate. Please log in again.");
     } finally {
       setLoading(false);
     }
-  }, [token, setUser]);
+  }
 
   useEffect(() => {
     if (token) {
       checkUser();
     } else {
       setLoading(false);
-      setUser(null);
+      setUser(null); // Ensure user is null when no token
     }
-  }, [token, checkUser, setUser]);
+  }, [token]);
 
+  // ✅ FIX: Add useEffect to persist user data
   useEffect(() => {
     if (user) {
       console.log("🔄 App - User context updated:", user);
@@ -102,14 +94,8 @@ function App() {
     <div className="app-layout">
       <Header />
       <div className="app-content">
-        {error && (
-          <div className="error-banner">
-            {error}
-            <button onClick={() => setError(null)}>×</button>
-          </div>
-        )}
         <Routes>
-          {/* Public Routes */}
+          {/* Public Routes - Redirect to home if logged in */}
           <Route
             path="/"
             element={token ? <Navigate to="/home" /> : <LandingPage />}
@@ -128,7 +114,7 @@ function App() {
           />
           <Route path="/how-it-works" element={<HowItWorks />} />
 
-          {/* Protected Routes */}
+          {/* Protected Routes - Require authentication */}
           <Route
             path="/home"
             element={
@@ -153,6 +139,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+          {/* Add Edit Routes */}
           <Route
             path="/edit-question/:question_id"
             element={
@@ -170,6 +157,7 @@ function App() {
             }
           />
         </Routes>
+        {/* ✅ Show AI Assistant only if user is logged in */}
         {user && <AIAssistant />}
       </div>
       <Footer />
