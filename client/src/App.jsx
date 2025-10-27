@@ -157,8 +157,7 @@ function App() {
             }
           />
         </Routes>
-        {/* ✅ Show AI Assistant only if user is logged in */}
-        {user && <AIAssistant />}
+        <AIAssistant />
       </div>
       <Footer />
     </div>
