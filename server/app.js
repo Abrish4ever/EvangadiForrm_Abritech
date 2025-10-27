@@ -12,7 +12,27 @@ const app = express();
 const port = process.env.DB_PORT;
 
 // Middleware
-app.use(cors());
+
+// Option 1: Allow specific origin (most secure)
+app.use(
+  cors({
+    origin: "https://evangadihub.abri-tech.com",
+    credentials: true,
+  })
+);
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 // Route for AI chat
