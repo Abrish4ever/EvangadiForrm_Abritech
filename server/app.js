@@ -9,7 +9,7 @@ const questionRoutes = require("./routes/questionRoutes");
 const answerRoutes = require("./routes/answerRoute");
 
 const app = express();
-const port = process.env.DB_PORT;
+const port = process.env.PORT;
 
 // Middleware
 
