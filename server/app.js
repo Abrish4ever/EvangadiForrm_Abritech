@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 const dbConnection = require("./db/dbConfig");
 const createTables = require("./db/dbSchema");
 
@@ -8,7 +9,7 @@ const questionRoutes = require("./routes/questionRoutes");
 const answerRoutes = require("./routes/answerRoute");
 
 const app = express();
-const port = process.env.PORT || 5500;
+const port = process.env.DB_PORT;
 
 // Middleware
 app.use(cors());
