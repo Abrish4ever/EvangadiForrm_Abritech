@@ -177,8 +177,3 @@ You can test your backend routes using **Postman**:
 Full-Stack Developer | Abri-Tech
 📧 [Contact](mailto:abrham@abri-tech.com)
 
----
-
-## 📜 License
-
-This project is open source and available under the [MIT License](LICENSE).
