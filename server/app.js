@@ -15,10 +15,7 @@ const port = process.env.PORT;
 
 // Option 1: Allow specific origin (most secure)
 app.use(
-  cors({
-    origin: "https://evangadihub.abri-tech.com",
-    credentials: true,
-  })
+  cors()
 );
 
 app.use(express.json());
